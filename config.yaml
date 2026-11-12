@@ -1,0 +1,21 @@
+# Настройки сервера (можно опустить, если задаете их в командной строке)
+host: 0.0.0.0
+port: 8080
+
+fs_dav_provider:
+    follow_symlinks: true
+dir_browser:
+    htdocs_path: /data/data/com.termux/files/home/WebDavServer/WebDavEnv/lib/python3.13/site-packages/wsgidav/dir_browser/htdocs
+
+# 1. Указываем, какую папку на диске открываем
+provider_mapping:
+  "/sdcard/": "/data/data/com.termux/files/home/music_sd"  # Замените на реальный путь
+  "/root/": "/data/data/com.termux/files/home/storage/shared"  # Заменит    е на реальный путь  
+  "/termux/": "/data/data/com.termux/files/home"
+# 2. Настраиваем аутентификацию
+simple_dc:
+    user_mapping:
+        "*":  # "*" означает, что правило применяется ко всем путям
+            "myuser":  # Имя пользователя
+                password: "jdjob2007"  # Пароль
+                roles: ["editor"]       # Роль (дает права на запись)
